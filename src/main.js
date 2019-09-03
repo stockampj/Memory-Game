@@ -1,4 +1,4 @@
-import { pingPong } from './ping-pong';
+import { pingPong } from './memory-game.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
