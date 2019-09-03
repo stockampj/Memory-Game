@@ -1,25 +1,29 @@
-export function pingPong(goal) {
-  var output = [];
-  for (var i = 1; i <= goal; i++) {
-    if (i % 15 === 0) {
-      output.push("ping-pong");
-    } else if (i % 3 === 0) {
-      output.push("ping");
-    } else if (i % 5 === 0) {
-      output.push("pong");
-    } else  {
-      output.push(i);
-    }
-  }
-  return output;
+export function MemoryGame(){
+  this.cards = [a, aa, b, bb, c, cc, d, dd, e, ee, f, ff];
+  this.arrangement = [];
 }
 
-function MemoryGame(){
-  this.cards = [a, aa, b, bb, c, cc, d, dd, e, ee, f, ff],
-  this.arrangement = []
-}
+var a = new MemoryCard ("turtle", "turtle", 1);
+var aa = new MemoryCard ("turtle", "turtle", 2);
 
-MemoryGame.prototype.randomizer = function (cards) {
+var b = new MemoryCard ("dog", "dog", 3);
+var bb = new MemoryCard ("dog", "dog", 4);
+
+var c = new MemoryCard ("rabbit", "rabbit", 5);
+var cc = new MemoryCard ("rabbit", "rabbit", 6);
+
+var d = new MemoryCard ("hippo", "hippo", 7);
+var dd = new MemoryCard ("hippo", "hippo", 8);
+
+var e = new MemoryCard ("panda", "panda", 9);
+var ee = new MemoryCard ("panda", "panda", 10);
+
+var f = new MemoryCard ("lion", "lion", 11);
+var ff = new MemoryCard ("lion", "lion", 12);
+
+export var memoryGame = new MemoryGame();
+
+MemoryGame.prototype.randomizer = function () {
   var test = memoryGame.cards;
   var duplicateProtector = [];
   for (var i=0; duplicateProtector.length<12; i++) {
@@ -29,33 +33,15 @@ MemoryGame.prototype.randomizer = function (cards) {
     }
   }
   for (var j=0; j<12 ; j++) {
-      var newIndex = duplicateProtector[j]
-      memoryGame.arrangement.push(test[newIndex]);
+    var newIndex = duplicateProtector[j];
+    memoryGame.arrangement.push(test[newIndex]);
   }
+};
+
+
+
+export function MemoryCard(cardName, cardImageURL, cardID) {
+  this.cardName = cardName;
+  this.cardImageURL = cardImageURL;
+  this.cardID = cardID;
 }
-
-
-
-function MemoryCard(cardName, cardImageURL, cardID) {
-  this.cardName = cardName,
-  this.cardImageURL = cardImageURL,
-  this.cardID = cardID
-}
-
-var a = new MemoryCard ("turtle", "turtle", 1)
-var aa = new MemoryCard ("turtle", "turtle", 2)
-
-var b = new MemoryCard ("dog", "dog", 3)
-var bb = new MemoryCard ("dog", "dog", 4)
-
-var c = new MemoryCard ("rabbit", "rabbit", 5)
-var cc = new MemoryCard ("rabbit", "rabbit", 6)
-
-var d = new MemoryCard ("hippo", "hippo", 7)
-var dd = new MemoryCard ("hippo", "hippo", 8)
-
-var e = new MemoryCard ("panda", "panda", 9)
-var ee = new MemoryCard ("panda", "panda", 10)
-
-var f = new MemoryCard ("lion", "lion", 11)
-var ff = new MemoryCard ("lion", "lion", 12)
